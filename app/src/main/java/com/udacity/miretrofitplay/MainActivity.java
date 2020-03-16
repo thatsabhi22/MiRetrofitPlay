@@ -29,20 +29,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void getTodos(){
 
-        Call<List<Todo>> call = apiInterface.getTodos();
+        Call<List<Todo>> call = apiInterface.getTodoUsingQuery(2);
 
         call.enqueue(new Callback<List<Todo>>() {
             @Override
             public void onResponse(Call<List<Todo>> call, Response<List<Todo>> response) {
                 Log.e(TAG, "onResponse: " + response.body());
-                Log.e(TAG, "onResponse: " );
+
+                List<Todo> listtodo = response.body();
+
+
+                Log.e(TAG, "onResponse: " + listtodo.get(0).getTitle() );
             }
 
             @Override
             public void onFailure(Call<List<Todo>> call, Throwable t) {
-                Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
+                Log.e(TAG, "onFailure: " + t.getMessage());
             }
         });
-
     }
 }

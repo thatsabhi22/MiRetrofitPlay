@@ -18,7 +18,7 @@ public interface ApiInterface {
     Call<Todo> getTodo(@Path("id") int id);
 
     @GET("/todos")
-    Call<Todo> getTodoUsingQuery(@Query("id") int id);
+    Call<List<Todo>> getTodoUsingQuery(@Query("id") int id);
 
     @POST("/todos")
     Call<Todo> postTodo(@Body Todo todo);
