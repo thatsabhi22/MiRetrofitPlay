@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Todo> listtodo = response.body();
 
 
-                Log.e(TAG, "onResponse: " + listtodo.get(0).getTitle() );
+                Log.e(TAG, "onResponse: " + listtodo.get(0).getTitle());
             }
 
             @Override
